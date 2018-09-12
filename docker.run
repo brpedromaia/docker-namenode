@@ -1,2 +1,0 @@
-dockerParameters="-p 50070:50070"
-dockerCommandLine=""
