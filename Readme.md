@@ -1,6 +1,8 @@
-# Apache Hadoop 2.7.7 Datanode Docker image
+## Apache Hadoop 2.7.7 Docker images
 **[See all here](https://hub.docker.com/r/brpedromaia/hadoop/)**
-_Note: This docker image requires *docker network running*.
+# Namenode docker image
+
+***Note: This docker image requires *docker network running* and the following containers running: ***
 
 
 # Build the image
@@ -8,26 +10,26 @@ _Note: This docker image requires *docker network running*.
 If you'd like to try directly from the Dockerfile you can build the image as:
 
 ```
-docker build  -t brpedromaia/namenode:latest namenode/
+docker build  -t brpedromaia/hadoop-namenode:latest namenode/
 ```
 # Pull the image
 
 The image is also released as an official Docker image from Docker's automated build repository - you can always pull or refer the image when launching containers.
 
 ```
-docker pull brpedromaia/namenode
+docker pull brpedromaia/hadoop-namenode
 ```
 
 # Start a container
 
-In order to use the Docker image you have just build or pulled use:
+***In order to use the Docker image you have just build or pulled use:***
 
 ```
 docker create network dockerlan
-docker run -itd --net=dockerlan --hostname=namenode --name=namenode brpedromaia/namenode
+docker run -itd --net=dockerlan --hostname=namenode --name=namenode brpedromaia/hadoop-namenode
 ```
 
-To enter in container
+***To enter in container***
 
 ```
 docker exect -it namenode bash
@@ -37,16 +39,16 @@ docker exect -it namenode bash
 
 ```
 docker create network dockerlan
-docker run -it --net=dockerlan --hostname=namenode --name=namenode brpedromaia/namenode -bash
+docker run -it --net=dockerlan --hostname=namenode --name=namenode brpedromaia/hadoop-namenode -bash
 ```
 
-**You would like to have a tunnel port exposed to localhost.**
+** you would like to have a tunnel port exposed to localhost.**
 
 ```
-docker run -itd --net=dockerlan --hostname=namenode -p 50070:50070 --name=namenode brpedromaia/namenode
+docker run -itd --net=dockerlan --hostname=namenode -p 50070:50070 --name=namenode brpedromaia/hadoop-namenode
 ```
 
-## Testing
+# Testing
 
 You can in browser:
 
@@ -55,6 +57,6 @@ http://localhost:50070
 ```
 
 
-## Automate everything
+# Automate everything
 
 To automate everything add code before "while" on namenode-entrypoint.sh 
